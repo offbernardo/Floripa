@@ -1,0 +1,112 @@
+local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Orion/main/source'))()
+
+local Window = OrionLib:MakeWindow({
+    Name = "Floripa",
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "Frp"
+})
+
+local Tab = Window:MakeTab({
+    Name = "Lojinhas",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+local function bypass_teleport(location)
+    local lp = game.Players.LocalPlayer
+    if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+        local tween_s = game:GetService('TweenService')
+        local tweeninfo = TweenInfo.new(1, Enum.EasingStyle.Linear)
+        local cf = CFrame.new(location)
+        local a = tween_s:Create(lp.Character.HumanoidRootPart, tweeninfo, {CFrame = cf})
+        a:Play()
+    end
+end
+
+local locations = {
+    LojaA = Vector3.new(3558.17603, 17.1060009, 3534.36084),
+    LojaB = Vector3.new(3349.72583, 17.0427361, 3159.24219),
+    LojaC = Vector3.new(4801.47607, 16.0373383, 2223.02466),
+    LojaD = Vector3.new(2453.67236, 16.4313755, 1373.62378),
+    LojaE = Vector3.new(2558.19531, 16.8598175, 2994.55249),
+    LojaF = Vector3.new(3370.74585, 36.146904, -2184.22437)
+}
+
+Tab:AddButton({
+    Name = "Teleport Loja A",
+    Callback = function()
+        bypass_teleport(locations.LojaA)
+        print("Teleport Loja A button pressed")
+    end    
+})
+
+Tab:AddButton({
+    Name = "Teleport Loja B",
+    Callback = function()
+        bypass_teleport(locations.LojaB)
+        print("Teleport Loja B button pressed")
+    end    
+})
+
+Tab:AddButton({
+    Name = "Teleport Loja C",
+    Callback = function()
+        bypass_teleport(locations.LojaC)
+        print("Teleport Loja C button pressed")
+    end    
+})
+
+Tab:AddButton({
+    Name = "Teleport Loja D",
+    Callback = function()
+        bypass_teleport(locations.LojaD)
+        print("Teleport Loja D button pressed")
+    end    
+})
+
+Tab:AddButton({
+    Name = "Teleport Loja E",
+    Callback = function()
+        bypass_teleport(locations.LojaE)
+        print("Teleport Loja E button pressed")
+    end    
+})
+
+Tab:AddButton({
+    Name = "Teleport Loja F",
+    Callback = function()
+        bypass_teleport(locations.LojaF)
+        print("Teleport Loja F button pressed")
+    end    
+})
+
+local MoneyLaunderingTab = Window:MakeTab({
+    Name = "Lavar Dinheiro",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+MoneyLaunderingTab:AddButton({
+    Name = "Ir lavar dinheiro",
+    Callback = function()
+        local location = Vector3.new(6375.44775, 15.2378788, 1389.42896)
+        bypass_teleport(location)
+        print("Ir lavar dinheiro button pressed")
+    end    
+})
+
+
+
+local Creditos = Window:MakeTab({
+	Name = "Creditos",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+Creditos:AddLabel("discord.gg/2TGfk8V89W")
